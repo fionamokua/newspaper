@@ -1,0 +1,18 @@
+{% extends 'base.html'%}
+{% block content%}
+<div>
+    {%for articles in object_list %}
+    <a href="{% url 'article_detail' articles.pk%}">{{articles.title}}</a>
+    <p>by {{articles.author}} | {{articles.date}}</p>
+    <p>{{articles.body}}</p>
+</div>
+
+<div>
+    {%for comment in article.comments.all%}
+    <p><span>{{comment.author}}</span>
+    {{comment}}
+</p>
+</div>
+   {%endfor%}
+   {%endfor%}
+{%endblock content%}
